@@ -1,9 +1,11 @@
 {
-    "development": {
-        "username": "postgres",
-        "password": "postgres",
-        "database": "test",
-        "host": "database-service",
-        "dialect": "postgres"
-    }
+  "development": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "test-docker",
+    "host": "database-service",
+    "dialect": "postgres"
+  },
+  "test": {},
+  "production": {}
 }

@@ -6,20 +6,22 @@ services:
     build: 
       context: ./server
       dockerfile: Dockerfile
+    ports:
+      - 5000:5000
     volumes:
-      - ./server:./server
+      - ./server:/server
     depends_on:
       - database-service 
 
   database-service:
-    image: postgress
+    image: postgres
     restart: always
     ports:
       - 5432:5432
     environment:
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_NAME: test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: test-docker
 
   client-service:
    build:
@@ -31,4 +33,4 @@ services:
     - 3000:3000
    stdin_open: true
    volumes:
-    - ./client:./client
+    - ./client:/client
