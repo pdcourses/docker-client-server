@@ -1,0 +1,7 @@
+const path = require('path');
+module.exports = {
+    'congig': path.resolve('src','db','config', 'config.json'),
+    'models_path': path.resolve('src', 'db', 'models'),
+    'seeders_path': path.resolve('src', 'db', 'seeders'),
+    'migrations_path': path.resolve('src', 'db', 'migrations')
+};

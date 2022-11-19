@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  server-service:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:./server
+    depends_on:
+      - database-service 
+
+  database-service:
+    image: postgress
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: test
+
+  client-service:
+   build:
+    context: ./client
+    dockerfile: Dockerfile
+   depends_on:
+    - server-service
+   ports:
+    - 3000:3000
+   stdin_open: true
+   volumes:
+    - ./client:./client
