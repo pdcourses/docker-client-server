@@ -1,5 +1,6 @@
 {
-  "development": {
+  "development": 
+  {
     "username": "postgres",
     "password": "admin",
     "database": "test-docker",

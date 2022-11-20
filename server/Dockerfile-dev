@@ -1,0 +1,7 @@
+FROM node
+WORKDIR ./server
+COPY . .
+RUN npm install
+RUN npm i nodemon
+EXPOSE 5000
+CMD nodemon ./src/index.js
